@@ -4,28 +4,23 @@ function getRandomHexColor() {
     .padStart(6, 0)}`;
 }
 
-const refs = {
-  input: document.querySelector('input'),
-  // button: document.querySelector('button'),
- 
-};
+const input = document.querySelector('input');
+const button = document.querySelectorAll('button');
+const firstdiv = document.querySelector('div');
 
 
 
 // "buttonCreate was clicked"
-const button = document.querySelectorAll('button');
-// console.log(buttonCreate[0]);
- 
 
-  // console.log(buttonCreate[0]);
+
  
   
 // считываем введенное число
 function onInputChange(event) {
   
-  refs.input.textContent = event.currentTarget.value.trim();
-  console.log(refs.input.textContent);
-  const amount = Number(refs.input.textContent);
+  input.textContent = event.currentTarget.value.trim();
+  console.log(input.textContent);
+  const amount = Number(input.textContent);
 
   const handleClick = () => {
     console.log("Button was clicked");
@@ -33,7 +28,7 @@ function onInputChange(event) {
 
 
     // создаем и добавляем DIV 
-    const firstdiv = document.querySelector('div');
+    
     // console.log(firstdiv);
 
     const lastdiv = firstdiv.nextElementSibling;
@@ -63,27 +58,18 @@ function onInputChange(event) {
   button[0].addEventListener
     ("click", handleClick);
   
-  
-
-   
-// удаляем 
-    
-      
-    //   };
- 
-    //   console.log('Введенные данные очищенны!!!');
 
 
 }
 
   
-refs.input.addEventListener('input', onInputChange);
+input.addEventListener('input', onInputChange);
 
 
  
 const destroyBoxes = () => {
   
-  const firstdiv = document.querySelector('div');
+  
   // console.log(firstdiv);
 
   const lastdiv = firstdiv.nextElementSibling;
@@ -94,9 +80,9 @@ const destroyBoxes = () => {
 
 
 //     
-      lastdiv.remove();
+      newArrayLastdiv.remove();
   
-  console.log('Введенные данные очищенны!!!', lastdiv);
+  console.log('Введенные данные очищенны!!!', newArrayLastdiv);
     };
 
    button[1].addEventListener
@@ -105,7 +91,7 @@ const destroyBoxes = () => {
 
 
  
-// console.log(buttonCreate[0].dataset.create);
+/
 
  
 
@@ -121,11 +107,6 @@ const destroyBoxes = () => {
 
 
 // };
-
- 
-
- 
-
 
 
 

@@ -6,33 +6,169 @@ function getRandomHexColor() {
 
 const refs = {
   input: document.querySelector('input'),
-  button: document.querySelector('button'),
+  // button: document.querySelector('button'),
+ 
 };
 
-console.log(refs.input);
 
 
+// "buttonCreate was clicked"
+const button = document.querySelectorAll('button');
+// console.log(buttonCreate[0]);
+ 
 
-
-
-refs.input.addEventListener('input', onInputChange);
-function onInputChange(event) {
-        
-        refs.input.textContent = event.currentTarget.value.trim();
-        console.log(refs.input.textContent);
-};
-
-refs.input.addEventListener('focus', onInputFocus);
-function onInputFocus() {  
-  console.log('Импут получил фокус- событие')
+  // console.log(buttonCreate[0]);
+ 
   
-};
-refs.input.addEventListener('blur', onInputBlur);
-  function onInputBlur() {
-          console.log('Импут забрал фокус- событие') 
-};
+// считываем введенное число
+function onInputChange(event) {
+  
+  refs.input.textContent = event.currentTarget.value.trim();
+  console.log(refs.input.textContent);
+  const amount = Number(refs.input.textContent);
+
+  const handleClick = () => {
+    console.log("Button was clicked");
+    
+
+
+    // создаем и добавляем DIV 
+    const firstdiv = document.querySelector('div');
+    // console.log(firstdiv);
+
+    const lastdiv = firstdiv.nextElementSibling;
+
+    let index = 20;
+    for (let i = 0; i < amount; i += 1) {
+      index += 10;
+      const indexString = String(index) + 'px';
+      console.log(indexString);
+      const divEl = document.createElement('div');
+      lastdiv.append(divEl);
+
+
+      // создаем квадраты цветные
+      divEl.style.backgroundColor = getRandomHexColor();
+      divEl.style.height = indexString;
+      divEl.style.width = indexString;
+    
+      console.log(lastdiv);
+      console.log(divEl);
+    };
+    
+    
+    
+  };
+  // console.log(button[0]);
+  button[0].addEventListener
+    ("click", handleClick);
+  
+  
+
+   
+// удаляем 
+    
+      
+    //   };
+ 
+    //   console.log('Введенные данные очищенны!!!');
+
+
+}
+
+  
+refs.input.addEventListener('input', onInputChange);
+
 
  
+const destroyBoxes = () => {
+  
+  const firstdiv = document.querySelector('div');
+  // console.log(firstdiv);
+
+  const lastdiv = firstdiv.nextElementSibling;
+  console.log(lastdiv);
+
+  const newArrayLastdiv = lastdiv.querySelectorAll('div');
+  console.log(newArrayLastdiv);
+
+
+//     
+      lastdiv.remove();
+  
+  console.log('Введенные данные очищенны!!!', lastdiv);
+    };
+
+   button[1].addEventListener
+     ("click", destroyBoxes);
+ 
+
+
+ 
+// console.log(buttonCreate[0].dataset.create);
+
+ 
+
+
+
+// // считываем введенное число
+// refs.input.addEventListener('input', onInputChange);
+// function onInputChange(event) {
+        
+//   refs.input.textContent = event.currentTarget.value.trim();
+//   console.log(refs.input.textContent);
+//   const amount = Number(refs.input.textContent);
+
+
+// };
+
+ 
+
+ 
+
+
+
+
+    // удаляем 
+    // const destroyBoxes = () => {
+    //   divEl.remove();
+    // };
+    //   destroyBoxes();
+    //   };
+ 
+    //   console.log('Введенные данные очищенны!!!');
+ 
+  
+
+
+
+// const buttonCreate = document.querySelector('button');
+// console.log(buttonCreate);
+
+// const handleClick = () => {
+//   console.log("Button was clicked");
+// };
+
+// buttonCreate.addEventListener
+//   ("click", handleClick);
+
+
+
+
+// const button = document.querySelector(".btn");
+
+// const handleClick = (event) => {
+//   console.log("event: ", event);
+//   console.log("event type: ", event.type);
+//   console.log("currentTarget: ", event.currentTarget);
+// };
+
+// button.addEventListener("click", handleClick);
+
+
+
+
+
 
 // Напиши скрипт создания и очистки коллекции элементов. Пользователь вводит количество элементов в input и нажимает кнопку Создать, после чего рендерится коллекция. При нажатии на кнопку Очистить, коллекция элементов очищается.
 

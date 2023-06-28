@@ -2,9 +2,11 @@
 
 const inputClass = document.querySelector('#font-size-control');
 // console.log(inputClass.value);
-inputClass.value = 16; 
+// За умовченням встановлюємо у мінімальне положення!
+ inputClass.value =Number(inputClass.min); 
+// console.log(inputClass.min);
 
-inputClass.addEventListener("click", onInputChange);
+inputClass.addEventListener("input", onInputChange);
 
 function onInputChange(event) {
         

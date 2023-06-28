@@ -8,14 +8,15 @@ input.addEventListener('input', onInputChange);
 function onInputChange(event) {
         
         input.textContent = event.currentTarget.value.trim();
-        const lengthInputEl = event.currentTarget.value.length;
+        const lengthInputEl = event.currentTarget.value.trim().length;
         console.log(input.textContent);
-           if (lengthInputEl !== Number(inputClass.getAttribute("data-length"))) {
+    if (lengthInputEl !== Number(inputClass.getAttribute("data-length"))) {
+               input.classList.remove('valid');
                input.classList.add('invalid');
            } else {
-               input.classList.replace('invalid', 'valid')
-            //     input.classList.remove('invalid');
-            //    input.classList.add('valid');
+            //    input.classList.replace('invalid', 'valid')
+                 input.classList.remove('invalid');
+               input.classList.add('valid');
     }
     
     }

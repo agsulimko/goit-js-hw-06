@@ -8,13 +8,39 @@ const ingredients = [
 ];
 
 const list = document.querySelector('ul');
+
+const array = ingredients[0];
+
+const elements = ingredients.map(ingredient => {
+  const itemEl = document.createElement('ul');
+  itemEl.textContent = ingredient;
+  return itemEl;   
+}) 
+
+console.log(elements);
+
+list.append(...elements); 
+
 console.log(list);
 
-ingredients.forEach(function (number, index) {
-  const item = document.createElement('li');
-  item.textContent = number;
-  list.append(item);
-});
+
+
+
+
+
+
+
+
+
+// Вариант №2
+// const list = document.querySelector('ul');
+// console.log(list);
+
+// ingredients.forEach(function (number, index) {
+//   const item = document.createElement('li');
+//   item.textContent = number;
+//   list.append(item);
+// });
  
 
 

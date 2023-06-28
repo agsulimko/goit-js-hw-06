@@ -14,9 +14,12 @@ form.addEventListener("submit", (event) => {
     // console.log(event.currentTarget);
     // console.log(`Login: ${email.value}, Password: ${password.value}`);
 
-    const newObject = {};
-    newObject.email = email.value;
-    newObject.password = password.value;
+  const newObject = {
+      email: email,
+    password:password,
+    };
+    // newObject.email = email.value;
+    // newObject.password = password.value;
     console.log('Обьект с введенными данными:', newObject);
     event.currentTarget.reset();
     console.log('Введенные данные очищенны!!!');

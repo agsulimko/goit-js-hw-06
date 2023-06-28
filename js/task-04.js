@@ -22,7 +22,7 @@ buttonIncrementEl.addEventListener("click", handleButtonIncrementClick);
 
 const value=() => {
     counterValueEl.textContent = counterValue;
-    counterValueEl.after(counterValueEl);
+   
 };
 
 // Создай переменную counterValue в которой будет храниться текущее значение счетчика и инициализируй её значением 0.

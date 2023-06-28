@@ -6,15 +6,12 @@ function getRandomHexColor() {
 
 const input = document.querySelector('input');
 const button = document.querySelectorAll('button');
-const firstdiv = document.querySelector('div');
 const boxes = document.querySelector("#boxes");
 console.log(boxes);
 
 
 // "buttonCreate was clicked"
 
-
- 
   
 // считываем введенное число
 function onInputChange(event) {
@@ -30,26 +27,24 @@ function onInputChange(event) {
 
     // создаем и добавляем DIV 
     
-    // console.log(firstdiv);
-
-    const lastdiv = firstdiv.nextElementSibling;
+   
 
     let index = 20;
     for (let i = 0; i < amount; i += 1) {
       index += 10;
       const indexString = String(index) + 'px';
       console.log(indexString);
-      const divEl = document.createElement('div');
-      lastdiv.append(divEl);
+      const boxesEl = document.createElement('div');
+      boxes.append(boxesEl);
 
 
       // создаем квадраты цветные
-      divEl.style.backgroundColor = getRandomHexColor();
-      divEl.style.height = indexString;
-      divEl.style.width = indexString;
+      boxesEl.style.backgroundColor = getRandomHexColor();
+      boxesEl.style.height = indexString;
+      boxesEl.style.width = indexString;
     
-      console.log(lastdiv);
-      console.log(divEl);
+      console.log(boxes);
+      console.log(boxesEl);
     };
     
     
@@ -73,10 +68,10 @@ const destroyBoxes = () => {
   
   // console.log(firstdiv);
 
-  const lastdiv = firstdiv.nextElementSibling;
-  console.log(lastdiv);
+ 
+  console.log(boxes);
 
-  const newArrayLastdiv = lastdiv.querySelectorAll('div');
+  const newArrayLastdiv = boxes.querySelector('div');
   console.log(newArrayLastdiv);
 
 

@@ -21,7 +21,7 @@ function onInputChange(event) {
 // console.log(spanClass.textContent);
  spanClass.style.fontSize =  volueFontSizeEl;
 
-    // console.log("Ползунок получил слушаеля");
+    
 }
 
 

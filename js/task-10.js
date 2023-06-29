@@ -10,25 +10,24 @@ const boxes = document.querySelector("#boxes");
 console.log(boxes);
 
 
-// "buttonCreate was clicked"
 
-  
+
 // считываем введенное число
 function onInputChange(event) {
   
   input.textContent = event.currentTarget.value.trim();
   console.log(input.textContent);
-  const amount = Number(input.textContent);
-
+  let amount = Number(input.textContent);
+  console.log(amount);
+  event.currentTarget.value = "";
+  if (amount < Number(input.getAttribute("min")) || amount > Number(input.getAttribute("max"))) { alert("min=1, max=100"); return  };
+    
   const handleClick = () => {
+      
     console.log("Button was clicked");
     
-
-
     // создаем и добавляем DIV 
-    
-   
-
+      
     let index = 20;
     for (let i = 0; i < amount; i += 1) {
       index += 10;
@@ -37,113 +36,41 @@ function onInputChange(event) {
       const boxesEl = document.createElement('div');
       boxes.append(boxesEl);
 
-
       // создаем квадраты цветные
       boxesEl.style.backgroundColor = getRandomHexColor();
       boxesEl.style.height = indexString;
       boxesEl.style.width = indexString;
     
       console.log(boxes);
-      console.log(boxesEl);
-    };
-    
-    
-    
-  };
-  // console.log(button[0]);
-  button[0].addEventListener
-    ("click", handleClick);
+      console.log(boxesEl); 
+    }; 
+  }
   
+  button[0].addEventListener("click", handleClick);
 
-
+  // удаляем 
+  const destroyBoxes = () => {
+  
+    for (let i = 0; i < amount; i += 1) {
+      boxes.firstElementChild.remove();
+    }
+    amount = 0;
+    console.log(boxes);
+    console.log(amount);
+  }
+  button[1].addEventListener("click", destroyBoxes);
+  
 }
-
-  
-input.addEventListener('input', onInputChange);
+input.addEventListener('change', onInputChange);
 
 
- 
-const destroyBoxes = () => {
-  
-  
-  // console.log(firstdiv);
-
- 
-  console.log(boxes);
-
-  const newArrayLastdiv = boxes.querySelector('div');
-  console.log(newArrayLastdiv);
-
-
-//     
-      newArrayLastdiv.remove();
-  
-  console.log('Введенные данные очищенны!!!', newArrayLastdiv);
-    };
-
-   button[1].addEventListener
-     ("click", destroyBoxes);
- 
-
-
- 
-
- 
-
-
-
-// // считываем введенное число
-// refs.input.addEventListener('input', onInputChange);
-// function onInputChange(event) {
-        
-//   refs.input.textContent = event.currentTarget.value.trim();
-//   console.log(refs.input.textContent);
-//   const amount = Number(refs.input.textContent);
-
-
-// };
-
-
-
-    // удаляем 
-    // const destroyBoxes = () => {
-    //   divEl.remove();
-    // };
-    //   destroyBoxes();
-    //   };
- 
-    //   console.log('Введенные данные очищенны!!!');
- 
   
 
 
-
-// const buttonCreate = document.querySelector('button');
-// console.log(buttonCreate);
-
-// const handleClick = () => {
-//   console.log("Button was clicked");
-// };
-
-// buttonCreate.addEventListener
-//   ("click", handleClick);
-
-
-
-
-// const button = document.querySelector(".btn");
-
-// const handleClick = (event) => {
-//   console.log("event: ", event);
-//   console.log("event type: ", event.type);
-//   console.log("currentTarget: ", event.currentTarget);
-// };
-
-// button.addEventListener("click", handleClick);
-
-
-
-
+const min = Number(input.getAttribute("min"));
+console.log(min);
+const max = Number(input.getAttribute("max"));
+console.log(max);
 
 
 // Напиши скрипт создания и очистки коллекции элементов. Пользователь вводит количество элементов в input и нажимает кнопку Создать, после чего рендерится коллекция. При нажатии на кнопку Очистить, коллекция элементов очищается.

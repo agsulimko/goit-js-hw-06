@@ -1,3 +1,6 @@
+
+
+
 const categoriesTitle = document.querySelectorAll("h2");
 console.log(`Number of categories: ${categoriesTitle.length}`);
 // console.log(categoriesTitle);
@@ -15,11 +18,7 @@ console.log(`Number of categories: ${categoriesTitle.length}`);
       console.log(`Elements: ${totalElements}`);
   }
   );
-
-
-
-
-
+// ====================================================================
 
 // const categoriesList = document.querySelector("#categories");
 // const totalElements = categoriesList.children.length;

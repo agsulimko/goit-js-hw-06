@@ -1,46 +1,69 @@
-const categoriesList = document.querySelector("#categories");
-const totalElements = categoriesList.children.length;
-console.log('Number of categories:', totalElements);
+const categoriesTitle = document.querySelectorAll("h2");
+console.log(`Number of categories: ${categoriesTitle.length}`);
+// console.log(categoriesTitle);
+ 
+ categoriesTitle.forEach( function (number, index){
+    //  console.log(number);
+     const elements = number.nextElementSibling;
+     const totalElements = elements.querySelectorAll('li').length;
+     const categoryName = number.textContent;
+    //  console.log(totalElements);
+    //  console.log(categoryName);
+    //  console.log(elements);
+ 
+     console.log(`Category : ${categoryName}`);
+      console.log(`Elements: ${totalElements}`);
+  }
+  );
 
-const h2 = document.querySelectorAll("h2");
-// console.log(h2);
-//  console.log(categoriesList);
-const catList = document.querySelectorAll("#categories");
-catList.forEach(element => {
-    const firstListEl = element.firstElementChild;
-    // console.log(firstListEl);
-    // console.log(element);
-    const firstCategoryEl = firstListEl.firstElementChild; 
-    // console.log(firstCategoryEl.textContent);
+
+
+
+
+
+// const categoriesList = document.querySelector("#categories");
+// const totalElements = categoriesList.children.length;
+// console.log('Number of categories:', totalElements);
+
+// const h2 = document.querySelectorAll("h2");
+// // console.log(h2);
+// //  console.log(categoriesList);
+// const catList = document.querySelectorAll("#categories");
+// catList.forEach(element => {
+//     const firstListEl = element.firstElementChild;
+//     // console.log(firstListEl);
+//     // console.log(element);
+//     const firstCategoryEl = firstListEl.firstElementChild; 
+//     // console.log(firstCategoryEl.textContent);
    
-    const firstItem = firstListEl.querySelectorAll('li').length;
-    // console.log(firstItem);
-console.log('Category :', firstCategoryEl.textContent);
-console.log('Elements:', firstItem);
+//     const firstItem = firstListEl.querySelectorAll('li').length;
+//     // console.log(firstItem);
+// console.log('Category :', firstCategoryEl.textContent);
+// console.log('Elements:', firstItem);
   
 
-    const secondListEl = firstListEl.nextElementSibling;
-    // console.log(secondListEl);
-    const secondCategoryEl = secondListEl.firstElementChild; 
-    //  console.log(secondCategoryEl.textContent);
+//     const secondListEl = firstListEl.nextElementSibling;
+//     // console.log(secondListEl);
+//     const secondCategoryEl = secondListEl.firstElementChild; 
+//     //  console.log(secondCategoryEl.textContent);
     
- const secondItem = secondListEl.querySelectorAll('li').length;
-    // console.log(secondItem);
-console.log('Category :', secondCategoryEl.textContent);
-console.log('Elements:', secondItem);
+//  const secondItem = secondListEl.querySelectorAll('li').length;
+//     // console.log(secondItem);
+// console.log('Category :', secondCategoryEl.textContent);
+// console.log('Elements:', secondItem);
 
 
-    const lastListEl = element.lastElementChild;
-    //  console.log(lastListEl);
-    const lastCategoryEl = lastListEl.firstElementChild; 
-    // console.log(lastCategoryEl.textContent);
+//     const lastListEl = element.lastElementChild;
+//     //  console.log(lastListEl);
+//     const lastCategoryEl = lastListEl.firstElementChild; 
+//     // console.log(lastCategoryEl.textContent);
    
-    const lastItem = lastListEl.querySelectorAll('li').length;
-    // console.log(lastItem);
+//     const lastItem = lastListEl.querySelectorAll('li').length;
+//     // console.log(lastItem);
 
-    console.log('Category :', lastCategoryEl.textContent);
-console.log('Elements:', lastItem);
-});
+//     console.log('Category :', lastCategoryEl.textContent);
+// console.log('Elements:', lastItem);
+// });
 
 
 

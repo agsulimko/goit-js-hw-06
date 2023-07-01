@@ -15,15 +15,18 @@ form.addEventListener("submit", (event) => {
     // console.log(`Login: ${email.value}, Password: ${password.value}`);
 
   const newObject = {
-      email: email,
-    password:password,
+      email: email.value,
+    password:password.value,
     };
     // newObject.email = email.value;
     // newObject.password = password.value;
     console.log('Обьект с введенными данными:', newObject);
     event.currentTarget.reset();
-    console.log('Введенные данные очищенны!!!');
-    
+  
+  newObject.email = '';
+  newObject.password = '';
+  console.log('Введенные данные очищенны!!!');
+    console.log('Обьект с введенными данными:', newObject);
 });
 
 const button = form.querySelector("button");

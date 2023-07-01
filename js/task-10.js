@@ -4,74 +4,61 @@ function getRandomHexColor() {
     .padStart(6, 0)}`;
 }
 
-const input = document.querySelector('input');
-const button = document.querySelectorAll('button');
-const boxes = document.querySelector("#boxes");
+const refs = {
+input: document.querySelector('input'),
+boxes: document.querySelector("#boxes"),
+createBtn: document.querySelector('[data-create]'),
+destroyBtn: document.querySelector('[data-destroy]'),
+};
+
+const inputOption = {
+  min: Number(refs.input.min),
+  max: Number(refs.input.max),
+  step: Number(refs.input.step),
+};
+
 console.log(boxes);
-
-
-
-
 // считываем введенное число
-function onInputChange(event) {
-  
-  input.textContent = event.currentTarget.value.trim();
-  console.log(input.textContent);
-  let amount = Number(input.textContent);
-  console.log(amount);
-  event.currentTarget.value = "";
-  if (amount < Number(input.getAttribute("min")) || amount > Number(input.getAttribute("max"))) { alert("min=1, max=100"); return  };
-    
+ 
   const handleClick = () => {
-      
+    let amount = Number(refs.input.value);
+    
     console.log("Button was clicked");
-    
+    if (amount < inputOption.min || amount > inputOption.max) { alert("min=1, max=100"); return };
     // создаем и добавляем DIV 
-      
-    let index = 20;
-    for (let i = 0; i < amount; i += 1) {
-      index += 10;
-      const indexString = String(index) + 'px';
-      console.log(indexString);
-      const boxesEl = document.createElement('div');
-      boxes.append(boxesEl);
-
-      // создаем квадраты цветные
-      boxesEl.style.backgroundColor = getRandomHexColor();
-      boxesEl.style.height = indexString;
-      boxesEl.style.width = indexString;
-    
-      console.log(boxes);
-      console.log(boxesEl); 
-    }; 
-  }
+    const boxArr = [];
+    const size = 30;
+    const font = 20;
+    for (let i = 0; i < amount; i += inputOption.step) {
+      let growingSize = size + i * 10;
+      let growingFont = font + i;
+      console.log(growingSize);
+      const boxesEl = `<div style="width:${growingSize > 70 ? 70 : growingSize}px;height:${growingSize}px;background-color:${createRGB()};display:flex;justify-content:center;align-items:center;"><p style="color:white;mix-blend-mode: difference;font-size:${growingFont > 80 ? 80 : growingFont}px;font-weight:500;">Q</p></div>`;
+      boxArr.push(boxesEl);
+      console.log(refs.boxes);
+      // console.log(boxesEl); 
+    };
+    refs.boxes.insertAdjacentHTML("beforeend", boxArr.join(''));
+  };
   
-  button[0].addEventListener("click", handleClick);
+  refs.createBtn.addEventListener("click", handleClick);
 
   // удаляем 
   const destroyBoxes = () => {
-  
-    for (let i = 0; i < amount; i += 1) {
-      boxes.firstElementChild.remove();
-    }
-    amount = 0;
-    console.log(boxes);
-    console.log(amount);
-  }
-  button[1].addEventListener("click", destroyBoxes);
-  
-}
-input.addEventListener('change', onInputChange);
+    refs.boxes.innerHTML = '';
+    refs.input.value = '';
+    
+  };
+refs.destroyBtn.addEventListener("click", destroyBoxes);
 
-
-  
-
-
-const min = Number(input.getAttribute("min"));
-console.log(min);
-const max = Number(input.getAttribute("max"));
-console.log(max);
-
+// ============================================================
+const createRGB = () => {
+  const red = Math.round(Math.random(0, 1) * 255);
+  const green = Math.round(Math.random(0, 1) * 255);
+  const blue = Math.round(Math.random(0, 1) * 255);
+  return `rgb(${red},${green}, ${blue})`;
+ };
+console.log(createRGB());
 
 // Напиши скрипт создания и очистки коллекции элементов. Пользователь вводит количество элементов в input и нажимает кнопку Создать, после чего рендерится коллекция. При нажатии на кнопку Очистить, коллекция элементов очищается.
 

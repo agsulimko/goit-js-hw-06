@@ -18,10 +18,10 @@ refs.body.classList.add('body-color');
  
 
 const handleClick = (event) => {
-   
-  refs.span.textContent = getRandomHexColor();
-  bodyStyleEl.style.backgroundColor = refs.span.textContent;
-  console.log( refs.span.textContent); 
+   const color=getRandomHexColor();
+  refs.span.textContent = color;
+  bodyStyleEl.style.backgroundColor = color;
+  console.log( color); 
 };
 
 refs.button.addEventListener("click", handleClick);

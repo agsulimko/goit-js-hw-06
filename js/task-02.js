@@ -9,7 +9,6 @@ const ingredients = [
 
 const list = document.querySelector('ul');
 
-const array = ingredients[0];
 
 const elements = ingredients.map(ingredient => {
   const itemEl = document.createElement('ul');

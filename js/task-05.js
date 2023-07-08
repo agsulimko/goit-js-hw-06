@@ -8,9 +8,10 @@ const refs = {
 refs.input.addEventListener('input', onInputChange);
 
 function onInputChange(event) {
- 
-    refs.span.textContent = event.currentTarget.value.trim();
-    if (!refs.span.textContent) { refs.span.textContent = "Anonymous" };
+    refs.span.textContent = event.currentTarget.value.trim() || "Anonymous";
+   
+    // refs.span.textContent = event.currentTarget.value.trim();
+    // if (!refs.span.textContent) { refs.span.textContent = "Anonymous" };
     
     console.log(refs.span.textContent);
 }
